@@ -1,0 +1,136 @@
+[gd_scene load_steps=15 format=3 uid="uid://byf5cjx5ak3cf"]
+
+[ext_resource type="PackedScene" uid="uid://bh341a1cf4v0w" path="res://prefabs/hitbox.tscn" id="1_6bk4n"]
+[ext_resource type="Script" path="res://scripts/patrol_enemy.gd" id="1_yyick"]
+[ext_resource type="Texture2D" uid="uid://b36hatf4o6s2q" path="res://assets/Sprite Pack 2/7 - Rocket Cherry/Flying (16 x 32).png" id="2_f78da"]
+[ext_resource type="Texture2D" uid="uid://eejx7c5lpfsy" path="res://assets/Sprite Pack 2/7 - Rocket Cherry/Hurt_Falling (16 x 32).png" id="3_wfotr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yukxi"]
+atlas = ExtResource("2_f78da")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fsshi"]
+atlas = ExtResource("2_f78da")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3qki1"]
+atlas = ExtResource("3_wfotr")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7tf8l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yukxi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fsshi")
+}],
+"loop": true,
+"name": &"Flying",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3qki1")
+}],
+"loop": false,
+"name": &"Hurt",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_813rb"]
+size = Vector2(9, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fuyg5"]
+size = Vector2(8, 2)
+
+[sub_resource type="Curve2D" id="Curve2D_aq8h7"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, -62)
+}
+point_count = 2
+
+[sub_resource type="Animation" id="Animation_nm80c"]
+resource_name = "Patrol"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_klksb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y2pqu"]
+_data = {
+"Patrol": SubResource("Animation_nm80c"),
+"RESET": SubResource("Animation_klksb")
+}
+
+[node name="Patrol_Enemy" type="Node2D"]
+
+[node name="Enemy" type="CharacterBody2D" parent="."]
+position = Vector2(0, 7)
+collision_layer = 2
+collision_mask = 7
+motion_mode = 1
+script = ExtResource("1_yyick")
+
+[node name="Spawn_Enemy" type="Marker2D" parent="Enemy"]
+position = Vector2(0, 8)
+
+[node name="Anim" type="AnimatedSprite2D" parent="Enemy"]
+sprite_frames = SubResource("SpriteFrames_7tf8l")
+animation = &"Hurt"
+autoplay = "Flying"
+
+[node name="Collision" type="CollisionShape2D" parent="Enemy"]
+position = Vector2(-1.19209e-07, 7.5)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_813rb")
+
+[node name="Hitbox" parent="Enemy" instance=ExtResource("1_6bk4n")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/Hitbox"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_fuyg5")
+debug_color = Color(1, 0, 0, 0.419608)
+
+[node name="Path" type="Path2D" parent="."]
+curve = SubResource("Curve2D_aq8h7")
+
+[node name="Path_Follow" type="PathFollow2D" parent="Path"]
+position = Vector2(0, 7)
+rotates = false
+
+[node name="Remote" type="RemoteTransform2D" parent="Path/Path_Follow"]
+remote_path = NodePath("../../../Enemy")
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Path/Path_Follow/Remote")
+libraries = {
+"": SubResource("AnimationLibrary_y2pqu")
+}
+autoplay = "Patrol"
+speed_scale = 0.5
