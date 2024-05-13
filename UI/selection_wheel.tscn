@@ -1,0 +1,50 @@
+[gd_scene load_steps=9 format=3 uid="uid://dud8en8nkjrwf"]
+
+[ext_resource type="Script" path="res://scripts/selection_wheel.gd" id="1_8jmia"]
+[ext_resource type="Texture2D" uid="uid://dfmkbkuvvngk8" path="res://assets/Mini FX, Items & UI/Mini FX, Items & UI/Food Items/Ice_Cream_Cones (16 x 16).png" id="2_yn7m8"]
+[ext_resource type="Script" path="res://scripts/wheel_options.gd" id="3_7fu6a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3eukj"]
+atlas = ExtResource("2_yn7m8")
+region = Rect2(64, 0, 1, 1)
+script = ExtResource("3_7fu6a")
+name = "none"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_huvd3"]
+atlas = ExtResource("2_yn7m8")
+region = Rect2(0, 0, 16, 16)
+script = ExtResource("3_7fu6a")
+name = "murango"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7b46x"]
+atlas = ExtResource("2_yn7m8")
+region = Rect2(16, 0, 16, 16)
+script = ExtResource("3_7fu6a")
+name = "cocomenta"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_anvwo"]
+atlas = ExtResource("2_yn7m8")
+region = Rect2(32, 0, 16, 16)
+script = ExtResource("3_7fu6a")
+name = "baunila"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jhkq"]
+atlas = ExtResource("2_yn7m8")
+region = Rect2(48, 0, 16, 16)
+script = ExtResource("3_7fu6a")
+name = "cocolate"
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8jmia")
+bg_color = Color(0, 0, 0, 0.388235)
+line_color = Color(0.351563, 0.351563, 0.351563, 1)
+highlight_color = Color(0.286275, 0.501961, 1, 0.827451)
+options = Array[ExtResource("3_7fu6a")]([SubResource("AtlasTexture_3eukj"), SubResource("AtlasTexture_huvd3"), SubResource("AtlasTexture_7b46x"), SubResource("AtlasTexture_anvwo"), SubResource("AtlasTexture_0jhkq")])

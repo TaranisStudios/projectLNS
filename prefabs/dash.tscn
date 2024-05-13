@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxj4lscoh548"]
+
+[ext_resource type="Script" path="res://scripts/dash.gd" id="1_k8egq"]
+[ext_resource type="PackedScene" uid="uid://du7jwj5i2yro0" path="res://prefabs/ghost.tscn" id="2_knl43"]
+
+[node name="Dash" type="Node"]
+script = ExtResource("1_k8egq")
+ghost_node = ExtResource("2_knl43")
+
+[node name="Dash_Timer" type="Timer" parent="."]
+one_shot = true

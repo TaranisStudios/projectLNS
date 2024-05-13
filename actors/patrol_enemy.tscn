@@ -40,10 +40,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_813rb"]
-size = Vector2(9, 12)
+size = Vector2(8, 12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fuyg5"]
-size = Vector2(8, 2)
+size = Vector2(10, 2)
 
 [sub_resource type="Curve2D" id="Curve2D_aq8h7"]
 _data = {
@@ -106,7 +106,7 @@ animation = &"Hurt"
 autoplay = "Flying"
 
 [node name="Collision" type="CollisionShape2D" parent="Enemy"]
-position = Vector2(-1.19209e-07, 7.5)
+position = Vector2(-1.78814e-07, 7)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_813rb")
 

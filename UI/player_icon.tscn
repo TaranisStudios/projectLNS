@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://csm5l0pjc7vtq"]
+
+[ext_resource type="Texture2D" uid="uid://b6qemhv62fqkp" path="res://assets/Life-Counter-Icon.png" id="1_texs2"]
+
+[node name="Player_Icon" type="TextureRect"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_texs2")

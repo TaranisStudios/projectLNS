@@ -1,0 +1,69 @@
+[gd_scene load_steps=14 format=3 uid="uid://cakhsnsiaofl"]
+
+[ext_resource type="Script" path="res://scripts/selection_wheel_UI.gd" id="1_cnf1o"]
+[ext_resource type="PackedScene" uid="uid://dud8en8nkjrwf" path="res://UI/selection_wheel.tscn" id="2_y1p6i"]
+[ext_resource type="Texture2D" uid="uid://dfmkbkuvvngk8" path="res://assets/Mini FX, Items & UI/Mini FX, Items & UI/Food Items/Ice_Cream_Cones (16 x 16).png" id="3_avr08"]
+[ext_resource type="Script" path="res://scripts/wheel_options.gd" id="4_nff8s"]
+[ext_resource type="Texture2D" uid="uid://n30lh4ilm21m" path="res://assets/Mini FX, Items & UI/Mini FX, Items & UI/Food Items/Milk_Cartons (16 x 16).png" id="5_h1d1a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3eukj"]
+atlas = ExtResource("3_avr08")
+region = Rect2(64, 0, 1, 1)
+script = ExtResource("4_nff8s")
+name = "none"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_huvd3"]
+atlas = ExtResource("3_avr08")
+region = Rect2(0, 0, 16, 16)
+script = ExtResource("4_nff8s")
+name = "murango"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7b46x"]
+atlas = ExtResource("3_avr08")
+region = Rect2(16, 0, 16, 16)
+script = ExtResource("4_nff8s")
+name = "cocomenta"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_anvwo"]
+atlas = ExtResource("3_avr08")
+region = Rect2(32, 0, 16, 16)
+script = ExtResource("4_nff8s")
+name = "baunila"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jhkq"]
+atlas = ExtResource("3_avr08")
+region = Rect2(48, 0, 16, 16)
+script = ExtResource("4_nff8s")
+name = "cocolate"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6age"]
+atlas = ExtResource("5_h1d1a")
+region = Rect2(0, 0, 16, 16)
+script = ExtResource("4_nff8s")
+name = "leite_1"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvga3"]
+atlas = ExtResource("5_h1d1a")
+region = Rect2(16, 0, 16, 16)
+script = ExtResource("4_nff8s")
+name = "leite_2"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0fdr"]
+atlas = ExtResource("5_h1d1a")
+region = Rect2(32, 0, 16, 16)
+script = ExtResource("4_nff8s")
+name = "leite_3"
+
+[node name="Node" type="Node"]
+process_mode = 3
+
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("1_cnf1o")
+
+[node name="Label" type="Label" parent="UI"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Selection_Wheel" parent="UI" instance=ExtResource("2_y1p6i")]
+visible = false
+options = Array[ExtResource("4_nff8s")]([SubResource("AtlasTexture_3eukj"), SubResource("AtlasTexture_huvd3"), SubResource("AtlasTexture_7b46x"), SubResource("AtlasTexture_anvwo"), SubResource("AtlasTexture_0jhkq"), SubResource("AtlasTexture_c6age"), SubResource("AtlasTexture_yvga3"), SubResource("AtlasTexture_f0fdr")])

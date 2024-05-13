@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://cedbcpo7djx40"]
+
+[ext_resource type="FontFile" uid="uid://hupofyrngaer" path="res://assets/RevMiniPixel.ttf" id="1_fhuge"]
+[ext_resource type="Script" path="res://scripts/world_icon.gd" id="1_ipdqh"]
+[ext_resource type="PackedScene" uid="uid://7g8yaji77fy4" path="res://scenes/level_select.tscn" id="2_y48y3"]
+
+[sub_resource type="Gradient" id="Gradient_mq2o6"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_tcccx"]
+gradient = SubResource("Gradient_mq2o6")
+width = 32
+
+[node name="World_Icon" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 32.0
+offset_bottom = 32.0
+pivot_offset = Vector2(16, 16)
+script = ExtResource("1_ipdqh")
+level_select_packed = ExtResource("2_y48y3")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -8.0
+offset_right = 32.0
+theme_override_fonts/font = ExtResource("1_fhuge")
+theme_override_font_sizes/font_size = 8
+text = "World 1"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+texture = SubResource("GradientTexture1D_tcccx")

@@ -1,13 +1,13 @@
 extends Control
 
 @onready var coins_counter = $Container/Coins_Container/Coins_Counter as Label
-@onready var timer_counter = $Container/Timer_Container/Timer_Counter as Label
-@onready var score_counter = $Container/Score_Container/Score_Counter as Label
-@onready var life_counter = $Container/Life_Container/Life_Counter as Label
+@onready var timer_counter = $Score_Container/Timer_Container/Timer_Counter  as Label
+@onready var score_counter = $Score_Container/Score_Container/Score_Counter as Label
+@onready var life_counter = $Score_Container/Life_Container/Life_Counter as Label
 @onready var clock_timer = $Clock_Timer as Timer
 
-@export_range(0, 5) var default_minutes := 1
-@export_range(0, 59) var default_seconds := 0
+@export_range(0, 5) var default_minutes := 0
+@export_range(0, 59) var default_seconds := 10
 
 var minutes = 0
 var seconds = 0

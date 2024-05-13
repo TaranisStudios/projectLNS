@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://35de4y8v1nur"]
+
+[ext_resource type="Theme" uid="uid://btu5xqgy1p1lm" path="res://themes/buttons.tres" id="1_gu6th"]
+[ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_qr0ve"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_qvuf6"]
+action = &"ui_cancel"
+
+[sub_resource type="Shortcut" id="Shortcut_1jdjq"]
+events = [SubResource("InputEventAction_qvuf6")]
+
+[node name="Pause_Menu" type="CanvasLayer"]
+process_mode = 3
+visible = false
+script = ExtResource("1_qr0ve")
+
+[node name="BG_Ovelay" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.254902)
+
+[node name="Menu_Holder" type="VBoxContainer" parent="."]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -33.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Resume_BTN" type="Button" parent="Menu_Holder"]
+layout_mode = 2
+theme = ExtResource("1_gu6th")
+shortcut = SubResource("Shortcut_1jdjq")
+text = "RESUME"
+
+[node name="Quit_BTN" type="Button" parent="Menu_Holder"]
+layout_mode = 2
+theme = ExtResource("1_gu6th")
+text = "QUIT GAME"
+
+[connection signal="pressed" from="Menu_Holder/Resume_BTN" to="." method="_on_resume_btn_pressed"]
+[connection signal="pressed" from="Menu_Holder/Quit_BTN" to="." method="_on_quit_btn_pressed"]

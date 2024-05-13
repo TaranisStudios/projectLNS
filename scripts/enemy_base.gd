@@ -9,7 +9,6 @@ const JUMP_VELOCITY = -400.0
 @export var enemy_value = 100
 
 var wall_detector
-var texture
 var direction := -1
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -24,7 +23,9 @@ func _apply_gravity(delta):
 		velocity.y += gravity * delta
 
 func _movement(delta):
-	if is_on_floor():
+	if anim.animation == "Hurt":
+		velocity.x = 0
+	elif is_on_floor():
 		velocity.x = direction * SPEED * delta
 	move_and_slide()
 
@@ -33,17 +34,11 @@ func _flip_direction():
 		direction *= -1
 		wall_detector.scale.x *= -1
 	if direction == 1:
-		texture.flip_h = true
+		anim.flip_h = true
 	else:
-		texture.flip_h = false
+		anim.flip_h = false
 
-func kill_groud_enemy(anim_name: StringName) -> void:
-	kill_and_score()
-	
-func kill_patrol_enemy():
-	kill_and_score()
-
-func kill_and_score():
+func kill_enemy_and_score():
 	Globals.score += enemy_value
 	if can_spawn:
 		spawn_new_enemy()
