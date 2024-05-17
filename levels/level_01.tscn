@@ -1,32 +1,29 @@
-[gd_scene load_steps=42 format=3 uid="uid://b8pklxqevbxcl"]
+[gd_scene load_steps=38 format=3 uid="uid://b8pklxqevbxcl"]
 
 [ext_resource type="Script" path="res://scripts/world_01.gd" id="1_wbero"]
 [ext_resource type="Texture2D" uid="uid://bkpb52gnv4j8g" path="res://assets/Seasonal Tilesets/Seasonal Tilesets/1 - Grassland/Terrain (16 x 16).png" id="2_nicow"]
 [ext_resource type="Texture2D" uid="uid://ba56pmokfo5y6" path="res://assets/Seasonal Tilesets/Seasonal Tilesets/5 - Misc. universal tiles/Water_frames (16 x 32).png" id="3_lg0yp"]
 [ext_resource type="Texture2D" uid="uid://bgqmqd4dble3p" path="res://assets/Seasonal Tilesets/Seasonal Tilesets/5 - Misc. universal tiles/Flowers (16 x 16).png" id="4_rpyg4"]
 [ext_resource type="Texture2D" uid="uid://cpgefkds8q4pr" path="res://assets/Seasonal Tilesets/Seasonal Tilesets/1 - Grassland/Grassland_entities (16 x 16).png" id="5_p7tic"]
-[ext_resource type="PackedScene" uid="uid://ci1xbuacwmn1o" path="res://prefabs/goal.tscn" id="6_qlkko"]
 [ext_resource type="PackedScene" uid="uid://dgyuns1s3pyl2" path="res://actors/player.tscn" id="7_6sl4p"]
 [ext_resource type="Texture2D" uid="uid://d22oy5bw3glud" path="res://assets/Seasonal Tilesets/Seasonal Tilesets/1 - Grassland/Background parts/5 - Sky_color.png" id="8_1xwt1"]
 [ext_resource type="Texture2D" uid="uid://cqop7bwsl5psi" path="res://assets/Seasonal Tilesets/Seasonal Tilesets/1 - Grassland/Background parts/4 - Cloud_cover_2.png" id="9_87eqt"]
 [ext_resource type="Texture2D" uid="uid://dj70rfyi0ly3v" path="res://assets/Seasonal Tilesets/Seasonal Tilesets/1 - Grassland/Background parts/3 - Cloud_cover_1.png" id="10_cxn1u"]
 [ext_resource type="Texture2D" uid="uid://cmlj8d4w2t6vx" path="res://assets/Seasonal Tilesets/Seasonal Tilesets/1 - Grassland/Background parts/2 - Hills.png" id="11_66l77"]
 [ext_resource type="Texture2D" uid="uid://b8e2ay2cwlr3f" path="res://assets/Seasonal Tilesets/Seasonal Tilesets/1 - Grassland/Background parts/1 - Foreground_scenery.png" id="12_cepfj"]
-[ext_resource type="Script" path="res://scripts/Warning_Sing.gd" id="13_cqm71"]
-[ext_resource type="Texture2D" uid="uid://brba6eime0nqf" path="res://assets/Mini FX, Items & UI/Mini FX, Items & UI/Mini UI/Speech_Emotes (16 x 16).png" id="14_cqr6f"]
 [ext_resource type="Script" path="res://scripts/hud_manager.gd" id="15_2680q"]
 [ext_resource type="Texture2D" uid="uid://dgfvrh8yg3sch" path="res://assets/Coin-Sprites/00_Coin-Sprites.png" id="16_k7l30"]
 [ext_resource type="Texture2D" uid="uid://byt5ar30rr4lk" path="res://assets/Coin-Sprites/01_Coin-Sprites.png" id="17_x8edj"]
 [ext_resource type="Texture2D" uid="uid://dn4vcy65s8hmt" path="res://assets/Coin-Sprites/02_Coin-Sprites.png" id="18_8ywui"]
 [ext_resource type="Texture2D" uid="uid://bstuh08nhmt8u" path="res://assets/Coin-Sprites/03_Coin-Sprites.png" id="19_0kuop"]
 [ext_resource type="FontFile" uid="uid://hupofyrngaer" path="res://assets/RevMiniPixel.ttf" id="20_5s4pp"]
+[ext_resource type="PackedScene" uid="uid://cgn4ihbkw37hf" path="res://actors/ground_enemy.tscn" id="21_3sgkc"]
 [ext_resource type="Texture2D" uid="uid://b6qemhv62fqkp" path="res://assets/Life-Counter-Icon.png" id="21_25tr5"]
-[ext_resource type="PackedScene" uid="uid://b2lgd42gcmdqf" path="res://prefabs/coin.tscn" id="22_lx4lj"]
 [ext_resource type="Script" path="res://scripts/Hearts_Container.gd" id="22_r7a2l"]
-[ext_resource type="PackedScene" uid="uid://cgn4ihbkw37hf" path="res://actors/ground_enemy.tscn" id="23_e0l6p"]
-[ext_resource type="PackedScene" uid="uid://de2a585rq42ti" path="res://prefabs/brick_box.tscn" id="24_x2ytw"]
-[ext_resource type="PackedScene" uid="uid://byf5cjx5ak3cf" path="res://actors/patrol_enemy.tscn" id="25_mrt8p"]
 [ext_resource type="PackedScene" uid="uid://35de4y8v1nur" path="res://UI/pause_menu.tscn" id="27_8o6ek"]
+[ext_resource type="PackedScene" uid="uid://bp2nhhdt2u855" path="res://prefabs/healing_potion.tscn" id="27_787bk"]
+[ext_resource type="PackedScene" uid="uid://b2lgd42gcmdqf" path="res://prefabs/coin.tscn" id="28_c6hci"]
+[ext_resource type="PackedScene" uid="uid://d32ii530tlbwd" path="res://prefabs/life_potion.tscn" id="28_hrijx"]
 [ext_resource type="Script" path="res://scripts/transition.gd" id="28_po34q"]
 [ext_resource type="Shader" path="res://shaders/transition.gdshader" id="29_wis4n"]
 [ext_resource type="Script" path="res://scripts/color_rect.gd" id="30_i8gkv"]
@@ -277,9 +274,6 @@ void fragment() {
 shader = SubResource("Shader_ib0g4")
 shader_parameter/move_speed = 0.1
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u1emn"]
-size = Vector2(32, 20)
-
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_svopx"]
 frames = 4
 speed_scale = 3.0
@@ -303,7 +297,8 @@ position = Vector2(35, 35)
 script = ExtResource("1_wbero")
 
 [node name="Level" type="TileMap" parent="."]
-position = Vector2(53, 85)
+position = Vector2(253, 405)
+scale = Vector2(3.5, 3.5)
 tile_set = SubResource("TileSet_cniqs")
 format = 2
 layer_0/name = "Trees"
@@ -311,100 +306,74 @@ layer_0/tile_data = PackedInt32Array(655397, 3, 0, 655398, 3, 0, 655399, 3, 0, 6
 layer_1/name = "Level"
 layer_1/tile_data = PackedInt32Array(786430, 196608, 4, 786431, 196608, 4, 720896, 196608, 4, 720897, 196608, 4, 720898, 196608, 4, 720899, 262144, 5, 720900, 262144, 5, 720901, 262144, 5, 720902, 262144, 5, 720903, 262144, 8, 720904, 262144, 5, 720905, 196608, 4, 720906, 196608, 4, 720907, 196608, 4, 720908, 196608, 4, 720909, 196608, 4, 720910, 262144, 5, 720911, 262144, 8, 720912, 262144, 5, 720913, 262144, 8, 720914, 262144, 8, 720915, 196608, 4, 720916, 196608, 4, 720917, 327680, 4, 720918, 262144, 5, 720926, 262144, 2, 720927, 262144, 8, 720928, 262144, 5, 720929, 327680, 4, 720930, 327680, 4, 720931, 262144, 5, 720932, 262144, 3, 786427, 262144, 8, 786428, 196608, 4, 786429, 196608, 4, 720892, 262144, 1, 720893, 262144, 1, 720894, 262144, 1, 720895, 262144, 1, 655360, 262144, 1, 655361, 262144, 1, 655362, 262144, 1, 655363, 262144, 1, 655364, 262144, 1, 655365, 262144, 1, 655366, 262144, 1, 655367, 262144, 1, 655368, 262144, 1, 655369, 262144, 1, 655370, 262144, 1, 655371, 262144, 1, 655372, 262144, 1, 655373, 262144, 1, 655374, 262144, 1, 655375, 262144, 1, 655376, 262144, 1, 655377, 262144, 1, 655378, 262144, 1, 655379, 262144, 1, 655380, 262144, 1, 655381, 262144, 1, 655382, 262144, 1, 720891, 327680, 3, 851963, 262144, 8, 917499, 262144, 4, 851964, 262144, 5, 917500, 262144, 2, 851965, 262144, 5, 917501, 262144, 2, 851966, 262144, 2, 917502, 262144, 8, 983038, 262144, 6, 851967, 262144, 2, 917503, 262144, 2, 983039, 262144, 6, 786432, 262144, 2, 851968, 262144, 5, 917504, 262144, 6, 786433, 262144, 8, 851969, 262144, 5, 917505, 262144, 6, 786434, 262144, 8, 851970, 262144, 2, 917506, 262144, 6, 786435, 262144, 2, 851971, 262144, 2, 917507, 262144, 6, 786436, 262144, 2, 851972, 262144, 8, 917508, 262144, 6, 786437, 262144, 2, 851973, 262144, 5, 917509, 262144, 6, 786438, 262144, 2, 851974, 262144, 5, 917510, 262144, 6, 786439, 262144, 2, 851975, 262144, 5, 917511, 262144, 6, 786440, 262144, 2, 851976, 262144, 8, 917512, 262144, 6, 786441, 262144, 8, 851977, 262144, 5, 917513, 262144, 6, 786442, 262144, 5, 851978, 262144, 5, 917514, 262144, 6, 786443, 262144, 8, 851979, 262144, 5, 917515, 262144, 6, 786444, 262144, 2, 851980, 262144, 5, 917516, 262144, 6, 786445, 262144, 2, 851981, 262144, 8, 917517, 262144, 6, 786446, 262144, 2, 851982, 262144, 2, 917518, 262144, 6, 786447, 262144, 5, 851983, 262144, 2, 917519, 262144, 6, 786448, 262144, 5, 851984, 262144, 2, 917520, 262144, 6, 786449, 262144, 8, 851985, 262144, 2, 917521, 262144, 6, 786450, 262144, 5, 851986, 262144, 2, 917522, 262144, 6, 786451, 262144, 8, 851987, 262144, 2, 917523, 262144, 6, 786452, 262144, 5, 851988, 262144, 2, 917524, 262144, 6, 786453, 262144, 5, 851989, 262144, 2, 917525, 262144, 6, 786454, 262144, 5, 851990, 262144, 2, 917526, 262144, 6, 786462, 262144, 5, 851998, 262144, 2, 917534, 262144, 6, 786463, 262144, 8, 851999, 262144, 5, 917535, 262144, 6, 786464, 262144, 2, 852000, 262144, 8, 917536, 262144, 6, 786465, 262144, 2, 852001, 262144, 8, 917537, 262144, 6, 786466, 262144, 2, 852002, 262144, 5, 917538, 262144, 6, 786467, 262144, 5, 852003, 262144, 2, 917539, 262144, 6, 655355, 327680, 2, 589819, 327680, 2, 524283, 327680, 2, 458747, 327680, 2, 917498, 262144, 2, 851962, 262144, 5, 786426, 262144, 8, 720890, 262144, 5, 655354, 262144, 5, 589818, 262144, 5, 524282, 262144, 5, 458746, 262144, 8, 393211, 327680, 1, 393210, 327680, 3, 393209, 196608, 2, 458745, 196608, 2, 524281, 196608, 2, 589817, 196608, 2, 655353, 196608, 2, 786425, 196608, 2, 720889, 196608, 2, 851961, 196608, 2, 917497, 196608, 2, 983033, 196608, 6, 655406, 262144, 1, 655407, 262144, 1, 655408, 262144, 1, 655409, 262144, 1, 655410, 262144, 1, 655411, 262144, 1, 655412, 262144, 1, 655413, 262144, 1, 655414, 262144, 1, 655415, 262144, 1, 720942, 262144, 3, 786478, 196608, 2, 852014, 196608, 2, 917550, 196608, 2, 720943, 262144, 3, 786479, 262144, 5, 852015, 262144, 3, 917551, 262144, 6, 720944, 262144, 8, 786480, 262144, 8, 852016, 262144, 8, 917552, 262144, 6, 720945, 262144, 8, 786481, 262144, 3, 852017, 262144, 8, 917553, 262144, 6, 720946, 262144, 8, 786482, 262144, 3, 852018, 262144, 5, 917554, 262144, 6, 720947, 262144, 5, 786483, 262144, 3, 852019, 262144, 8, 917555, 262144, 8, 720948, 262144, 8, 786484, 262144, 3, 852020, 262144, 5, 917556, 262144, 8, 720949, 262144, 8, 786485, 262144, 3, 852021, 262144, 3, 917557, 262144, 6, 720950, 262144, 5, 786486, 262144, 3, 852022, 262144, 3, 917558, 262144, 6, 720951, 262144, 3, 786487, 262144, 3, 852023, 262144, 3, 917559, 262144, 6, 720952, 262144, 3, 786488, 262144, 3, 852024, 262144, 3, 917560, 262144, 6, 720953, 262144, 3, 786489, 262144, 5, 852025, 262144, 8, 917561, 262144, 6, 720954, 262144, 3, 786490, 262144, 8, 852026, 262144, 5, 917562, 262144, 6, 720955, 262144, 2, 786491, 262144, 8, 852027, 262144, 8, 917563, 131072, 4, 655416, 262144, 1, 655417, 262144, 1, 655418, 262144, 1, 655419, 262144, 1, 983034, 262144, 6, 983035, 262144, 6, 983036, 262144, 6, 983037, 262144, 6, 327674, 327680, 2, 262138, 327680, 2, 196602, 327680, 2, 131066, 327680, 2, 65530, 327680, 2, -6, 327680, 2, -65542, 327680, 2, -131078, 327680, 2, -196614, 327680, 2, -262150, 327680, 2, -327686, 327680, 2, -393222, 327680, 2, -458758, 327680, 2, -524294, 327680, 2, -589830, 327680, 2, -655366, 327680, 1, -655367, 262144, 1, -655368, 262144, 1, -655369, 262144, 1, -589833, 262144, 2, -524297, 262144, 2, -458761, 262144, 2, -393225, 262144, 2, -327689, 262144, 2, -262153, 262144, 2, -196617, 262144, 5, -131081, 262144, 5, -65545, 262144, 8, -9, 262144, 5, 65527, 262144, 5, 131063, 262144, 8, 196599, 262144, 8, 327671, 131072, 4, -589832, 262144, 2, -524296, 262144, 2, -458760, 262144, 2, -393224, 262144, 2, -327688, 262144, 2, -262152, 262144, 2, -196616, 262144, 8, -131080, 262144, 8, -65544, 262144, 8, -8, 262144, 5, 65528, 262144, 5, 131064, 262144, 5, 196600, 262144, 2, 262136, 262144, 2, 327672, 131072, 4, -589831, 262144, 2, -524295, 262144, 2, -458759, 262144, 2, -393223, 262144, 2, -327687, 262144, 2, -262151, 262144, 2, -196615, 262144, 2, -131079, 262144, 2, -65543, 262144, 2, -7, 262144, 2, 65529, 262144, 2, 131065, 262144, 8, 196601, 262144, 8, 262137, 262144, 5, 327673, 196608, 4, 655397, 327680, 2, 655390, 196608, 3, 655391, 262144, 4, 655392, 262144, 8, 655393, 262144, 8, 655394, 262144, 4, 655395, 262144, 5, 655396, 262144, 5, 655383, 262144, 1, 655384, 262144, 1, 655385, 262144, 1, 655386, 262144, 1, 655387, 262144, 1, 655388, 262144, 1, 655389, 262144, 1, 589854, 196608, 2, 524318, 196608, 1, 524319, 262144, 1, 524320, 262144, 1, 524321, 262144, 1, 524322, 262144, 1, 524323, 196608, 3, 458787, 196608, 2, 393251, 196608, 2, 327715, 196608, 1, 327716, 262144, 1, 327717, 327680, 1, 393253, 327680, 2, 458789, 327680, 2, 524325, 327680, 2, 589861, 327680, 2, 720919, 262144, 8, 720920, 262144, 5, 720921, 262144, 5, 720922, 262144, 5, 720923, 262144, 5, 720924, 262144, 2, 720925, 262144, 2, 786461, 262144, 2, 786460, 262144, 8, 786459, 262144, 5, 786458, 262144, 8, 786457, 262144, 5, 786456, 262144, 5, 786455, 262144, 5, 851997, 262144, 8, 917532, 262144, 6, 917531, 262144, 6, 851995, 262144, 8, 851994, 262144, 5, 851993, 262144, 5, 851992, 262144, 5, 851991, 262144, 8, 851996, 262144, 5, 917533, 262144, 6, 917530, 262144, 6, 917529, 262144, 6, 917527, 262144, 6, 917528, 262144, 6, 589855, 262144, 4, 589856, 262144, 4, 589857, 262144, 4, 589858, 262144, 4, 589859, 262144, 4, 589860, 262144, 8, 524324, 262144, 8, 458788, 262144, 5, 393252, 262144, 4, 458794, 851968, 3, 458793, 786432, 3, 458792, 589824, 3, 655420, 262144, 1, 655421, 262144, 1, 655422, 262144, 1, 655423, 262144, 1, 655424, 262144, 1, 655425, 262144, 1, 655426, 262144, 1, 655427, 262144, 1, 655428, 262144, 1, 655429, 262144, 1, 655430, 262144, 1, 655431, 262144, 1, 655432, 262144, 1, 655433, 262144, 1, 655434, 262144, 1, 655435, 262144, 1, 655436, 262144, 1, 655437, 262144, 1, 655438, 262144, 1, 589898, 196608, 5, 524362, 196608, 5, 458826, 196608, 5, 393290, 65536, 3, 393291, 131072, 3, 393293, 131072, 3, 393294, 131072, 3, 393295, 131072, 3, 458831, 262144, 8, 524367, 262144, 8, 589903, 262144, 5, 655439, 262144, 1, 655440, 262144, 1, 655441, 262144, 1, 458829, 262144, 5, 458828, 262144, 5, 458827, 262144, 5, 524363, 262144, 5, 589899, 262144, 8, 589900, 262144, 5, 589901, 262144, 8, 524366, 262144, 5, 458830, 262144, 8, 524364, 262144, 5, 524365, 262144, 8, 589902, 262144, 5, 393296, 131072, 3, 393297, 458752, 3, 458833, 327680, 5, 524369, 327680, 5, 589905, 327680, 5, 458832, 262144, 5, 524368, 262144, 8, 589904, 262144, 5, 393292, 131072, 3, 131149, 851968, 3, 131148, 655360, 3, 131147, 589824, 3, 65621, 655360, 3, 65622, 786432, 3, 65623, 786432, 3, 65624, 786432, 3, 65625, 786432, 3, 65626, 786432, 3, 65627, 786432, 3, 65628, 786432, 3, 65629, 786432, 3, 65630, 786432, 3, 65633, 786432, 3, 65632, 786432, 3, 65631, 786432, 3, 917585, 131072, 4, 655442, 262144, 1, 655443, 262144, 1, 655444, 262144, 1, 655445, 262144, 1, 655446, 262144, 1, 655447, 262144, 1, 655448, 262144, 1, 655449, 262144, 1, 655450, 262144, 1, 655454, 262144, 1, 655455, 262144, 1, 655456, 262144, 1, 655457, 262144, 1, 655458, 262144, 1, 655453, 262144, 1, 655452, 262144, 1, 655451, 262144, 1, 655459, 262144, 1, 655460, 327680, 1, 655469, 262144, 1, 655470, 262144, 1, 655471, 262144, 1, 655472, 262144, 1, 655473, 262144, 1, 655468, 262144, 1, 655467, 196608, 1, 721003, 196608, 2, 786539, 196608, 2, 852075, 196608, 2, 720996, 327680, 2, 786532, 327680, 2, 852068, 327680, 2, 917604, 458752, 4, 720956, 262144, 2, 720957, 262144, 5, 720958, 262144, 8, 720959, 262144, 5, 720960, 262144, 5, 786492, 262144, 5, 786493, 262144, 8, 852029, 262144, 5, 852028, 262144, 5, 917564, 131072, 4, 917565, 131072, 4, 720961, 262144, 5, 720962, 262144, 5, 720963, 262144, 8, 720964, 262144, 2, 720965, 262144, 2, 720966, 262144, 2, 720967, 262144, 2, 720968, 262144, 2, 720969, 262144, 2, 720970, 262144, 2, 720971, 262144, 2, 720972, 262144, 2, 720973, 262144, 2, 720974, 262144, 2, 720975, 262144, 2, 720976, 262144, 2, 720977, 262144, 2, 720978, 262144, 5, 720979, 262144, 5, 720980, 262144, 5, 720981, 262144, 8, 720982, 262144, 8, 720983, 262144, 5, 720984, 262144, 2, 720985, 262144, 2, 720986, 262144, 2, 720987, 262144, 2, 720988, 262144, 2, 720989, 262144, 2, 720990, 262144, 2, 720991, 262144, 2, 720992, 262144, 2, 720993, 262144, 2, 720994, 262144, 2, 720995, 262144, 2, 786531, 262144, 2, 786530, 262144, 2, 786529, 262144, 5, 786528, 262144, 5, 852064, 262144, 5, 852063, 262144, 2, 852062, 262144, 2, 852061, 262144, 2, 852060, 262144, 5, 852059, 262144, 5, 852058, 262144, 5, 852057, 262144, 8, 852056, 262144, 8, 852055, 262144, 8, 852054, 262144, 8, 786518, 262144, 2, 786517, 262144, 2, 786516, 262144, 8, 786515, 262144, 5, 786514, 262144, 5, 786513, 262144, 8, 786512, 262144, 8, 786511, 262144, 5, 786510, 262144, 5, 786509, 262144, 2, 786508, 262144, 8, 786507, 262144, 5, 786506, 262144, 5, 786505, 262144, 8, 786504, 262144, 2, 786503, 262144, 2, 786502, 262144, 5, 786501, 262144, 8, 786500, 262144, 8, 786499, 262144, 2, 786498, 262144, 2, 786497, 262144, 2, 786496, 262144, 2, 786495, 262144, 2, 786494, 262144, 2, 852030, 262144, 8, 852031, 262144, 5, 852032, 262144, 8, 852033, 262144, 8, 852034, 262144, 8, 852035, 262144, 8, 852036, 262144, 8, 852037, 262144, 5, 852038, 262144, 5, 852039, 262144, 8, 852040, 262144, 8, 852041, 262144, 2, 852042, 262144, 2, 852043, 262144, 2, 852044, 262144, 2, 852045, 262144, 8, 852046, 262144, 8, 852047, 262144, 2, 852048, 262144, 2, 852049, 262144, 2, 852050, 262144, 5, 852051, 262144, 8, 852052, 262144, 8, 852053, 262144, 5, 786523, 262144, 2, 786522, 262144, 2, 786521, 262144, 2, 786520, 262144, 8, 786519, 262144, 8, 786524, 262144, 5, 786525, 262144, 5, 786526, 262144, 8, 786527, 262144, 8, 852067, 262144, 2, 852066, 262144, 2, 852065, 262144, 8, 917581, 131072, 4, 917576, 131072, 4, 917575, 131072, 4, 917574, 131072, 4, 917573, 131072, 4, 917572, 131072, 4, 917571, 131072, 4, 917570, 131072, 4, 917569, 131072, 4, 917568, 131072, 4, 917566, 131072, 4, 917567, 131072, 4, 917577, 131072, 4, 917578, 131072, 4, 917579, 131072, 4, 917580, 131072, 4, 917582, 131072, 4, 917583, 131072, 4, 917584, 131072, 4, 917586, 131072, 4, 917587, 131072, 4, 917588, 131072, 4, 917589, 262144, 6, 917590, 131072, 4, 917591, 131072, 4, 917592, 131072, 4, 917593, 131072, 4, 917594, 131072, 4, 917595, 131072, 4, 917596, 131072, 4, 917597, 131072, 4, 917598, 131072, 4, 917599, 131072, 4, 917600, 131072, 4, 917601, 131072, 4, 917602, 131072, 4, 917603, 131072, 4, 917611, 65536, 4, 917617, 393216, 4, 655474, 262144, 1, 655475, 262144, 1, 655476, 262144, 1, 655477, 262144, 1, 721004, 262144, 2, 721005, 262144, 8, 721006, 262144, 5, 721007, 262144, 5, 721008, 262144, 2, 721009, 262144, 2, 721010, 262144, 2, 721011, 262144, 2, 721012, 262144, 5, 721013, 262144, 5, 786548, 262144, 8, 786547, 262144, 8, 786546, 262144, 8, 786545, 262144, 5, 786544, 262144, 2, 786543, 262144, 2, 786542, 262144, 2, 786541, 262144, 8, 786540, 262144, 8, 786549, 262144, 8, 852084, 262144, 2, 852083, 262144, 2, 852082, 262144, 8, 852081, 262144, 5, 852080, 262144, 8, 852079, 262144, 5, 852078, 262144, 8, 852077, 262144, 8, 852076, 262144, 8, 852085, 262144, 2, 917612, 393216, 4, 917613, 393216, 4, 917614, 393216, 4, 917615, 393216, 4, 917616, 393216, 4, 917618, 393216, 4, 917619, 393216, 4, 917620, 393216, 4, 917621, 393216, 4, 65620, 589824, 3, 65634, 851968, 3, 655478, 262144, 1, 655479, 262144, 1, 655480, 262144, 1, 655481, 262144, 1, 655482, 262144, 1, 655483, 262144, 1, 655484, 262144, 1, 655485, 262144, 1, 655486, 262144, 1, 655487, 262144, 1, 655488, 327680, 1, 721024, 327680, 2, 786560, 327680, 2, 852096, 327680, 2, 917632, 458752, 4, 917631, 393216, 4, 917630, 393216, 4, 917629, 393216, 4, 917628, 393216, 4, 917627, 393216, 4, 917626, 393216, 4, 917625, 393216, 4, 917624, 393216, 4, 917623, 393216, 4, 917622, 393216, 4, 852086, 262144, 2, 852087, 262144, 2, 852088, 262144, 2, 852089, 262144, 2, 852090, 262144, 2, 852091, 262144, 2, 852092, 262144, 2, 852093, 262144, 2, 852094, 262144, 2, 852095, 262144, 2, 786559, 262144, 2, 721023, 262144, 2, 721022, 262144, 2, 721021, 262144, 8, 721020, 262144, 5, 786556, 262144, 8, 786555, 262144, 5, 786557, 262144, 5, 786558, 262144, 8, 721019, 262144, 5, 721018, 262144, 8, 721017, 262144, 8, 721016, 262144, 8, 721015, 262144, 5, 721014, 262144, 5, 786550, 262144, 8, 786551, 262144, 8, 786552, 262144, 5, 786553, 262144, 8, 786554, 262144, 5, 655495, 196608, 1, 655496, 262144, 1, 655497, 262144, 1, 655498, 262144, 1, 655499, 262144, 1, 655500, 262144, 1, 655501, 262144, 1, 655502, 262144, 1, 655503, 262144, 1, 655504, 262144, 1, 655505, 327680, 1, 721041, 327680, 2, 786577, 327680, 2, 852113, 327680, 2, 917649, 458752, 4, 721031, 196608, 2, 786567, 196608, 2, 852103, 196608, 2, 852104, 262144, 3, 917640, 131072, 4, 917639, 65536, 4, 917641, 131072, 4, 917642, 131072, 4, 917643, 131072, 4, 917644, 131072, 4, 917645, 131072, 4, 917646, 131072, 4, 917647, 131072, 4, 917648, 131072, 4, 852105, 262144, 5, 852106, 262144, 5, 852107, 262144, 8, 852108, 262144, 8, 852109, 262144, 5, 852110, 262144, 5, 852111, 262144, 3, 852112, 262144, 3, 786576, 262144, 8, 721040, 262144, 3, 721039, 262144, 3, 721038, 262144, 5, 721037, 262144, 5, 721036, 262144, 8, 721035, 262144, 8, 721034, 262144, 8, 721033, 262144, 3, 721032, 262144, 3, 786568, 262144, 3, 786569, 262144, 3, 786570, 262144, 5, 786571, 262144, 3, 786572, 262144, 3, 786573, 262144, 8, 786574, 262144, 5, 786575, 262144, 5, 524437, 589824, 3, 524438, 786432, 3, 524439, 786432, 3, 524440, 851968, 3, 393372, 589824, 3, 393373, 655360, 3, 393374, 655360, 3, 393375, 655360, 3, 393376, 655360, 3, 393377, 851968, 3, 524453, 589824, 3, 524459, 589824, 3, 524461, 851968, 3, 524454, 655360, 3, 524455, 851968, 3, 524460, 655360, 3, 655538, 65536, 3, 721074, 196608, 2, 786610, 196608, 2, 852146, 196608, 2, 917682, 65536, 4, 917683, 262144, 6, 917684, 262144, 6, 917685, 262144, 6, 917686, 262144, 6, 917687, 262144, 6, 917688, 262144, 6, 917689, 262144, 6, 917690, 262144, 6, 917691, 262144, 6, 917692, 458752, 4, 852156, 327680, 2, 786620, 327680, 2, 721084, 327680, 2, 655548, 262144, 1, 655539, 262144, 1, 655540, 262144, 1, 655541, 262144, 1, 655542, 262144, 1, 655543, 262144, 1, 655544, 262144, 1, 655545, 262144, 1, 655546, 262144, 1, 655547, 262144, 1, 721075, 262144, 2, 721076, 262144, 2, 721077, 262144, 5, 721078, 262144, 8, 721079, 262144, 5, 721080, 262144, 8, 721081, 262144, 8, 721082, 262144, 8, 721083, 262144, 2, 786619, 262144, 2, 852154, 262144, 2, 852153, 262144, 2, 852152, 262144, 2, 852151, 262144, 2, 786615, 262144, 8, 786614, 262144, 8, 786613, 262144, 8, 786612, 262144, 5, 786611, 262144, 8, 852147, 262144, 8, 852148, 262144, 8, 852149, 262144, 8, 852150, 262144, 8, 786616, 262144, 8, 786617, 262144, 8, 786618, 262144, 8, 852155, 262144, 2, 590012, 65536, 3, 590013, 131072, 3, 590014, 131072, 3, 590015, 131072, 3, 590016, 131072, 3, 590017, 131072, 3, 590018, 458752, 3, 655549, 262144, 1, 655550, 262144, 1, 655551, 262144, 1, 655552, 262144, 1, 655553, 262144, 1, 655554, 262144, 1, 655555, 262144, 1, 655556, 262144, 1, 655557, 262144, 1, 655558, 262144, 1, 524487, 196608, 1, 590023, 196608, 2, 655559, 196608, 3, 655560, 262144, 2, 590024, 262144, 8, 590025, 327680, 2, 655561, 327680, 3, 524488, 262144, 1, 524489, 327680, 1, 655562, 262144, 1, 655563, 262144, 1, 655564, 262144, 1, 655565, 262144, 1, 655566, 262144, 1, 590029, 196608, 5, 524493, 196608, 5, 393421, 65536, 3, 458957, 196608, 5, 393422, 393216, 3, 393423, 458752, 3, 458959, 327680, 5, 524495, 327680, 5, 590031, 327680, 5, 655567, 262144, 1, 655568, 262144, 1, 458958, 262144, 8, 524494, 262144, 5, 590030, 262144, 8, 655569, 262144, 1, 655570, 262144, 1, 655571, 262144, 1, 655572, 262144, 1, 655573, 262144, 1, 655574, 196608, 3, 590038, 196608, 2, 524502, 196608, 2, 458966, 196608, 2, 393430, 196608, 2, 327894, 196608, 2, 262358, 196608, 1, 262359, 262144, 1, 262360, 262144, 1, 262361, 262144, 1, 262362, 262144, 1, 262363, 262144, 1, 262364, 262144, 1, 262365, 262144, 1, 262366, 262144, 1, 262367, 262144, 1, 262368, 262144, 1, 589896, 327680, 5, 524360, 458752, 3, 524359, 393216, 3, 524358, 65536, 3, 589894, 196608, 5, 589895, 262144, 8, 327895, 262144, 5, 327896, 262144, 5, 327897, 262144, 5, 327898, 262144, 8, 327899, 262144, 5, 327900, 262144, 8, 327901, 262144, 5, 327902, 262144, 5, 327903, 262144, 5, 393439, 262144, 5, 327904, 262144, 8, 393440, 262144, 8, 458976, 262144, 8, 458975, 262144, 5, 524511, 262144, 5, 524510, 262144, 8, 524509, 262144, 5, 590045, 262144, 5, 524508, 262144, 8, 524507, 262144, 8, 524506, 262144, 8, 458970, 262144, 8, 458969, 262144, 5, 393433, 262144, 8, 393432, 262144, 8, 393431, 262144, 8, 458967, 262144, 5, 458968, 262144, 5, 524504, 262144, 8, 524505, 262144, 5, 458971, 262144, 5, 458972, 262144, 8, 393436, 262144, 5, 393437, 262144, 5, 393438, 262144, 5, 458974, 262144, 8, 590040, 262144, 8, 590039, 262144, 8, 655575, 262144, 8, 655576, 262144, 8, 655577, 262144, 5, 655578, 262144, 5, 655579, 262144, 5, 655580, 262144, 5, 655581, 262144, 5, 655582, 262144, 5, 655583, 262144, 8, 655584, 262144, 5, 590048, 262144, 5, 524512, 262144, 5, 590044, 262144, 5, 590046, 262144, 8, 590047, 262144, 5, 590043, 262144, 8, 590042, 262144, 8, 524503, 262144, 5, 590041, 262144, 5, 393435, 262144, 5, 393434, 262144, 8, 458973, 262144, 5, 655399, 1, 0, 655398, 1, 0, 720935, 1, 1, 720934, 1, 1, 786470, 1, 1, 852006, 1, 1, 852007, 1, 1, 786471, 1, 1, 852008, 1, 1, 786472, 1, 1, 720936, 1, 1, 655400, 1, 0, 655401, 1, 0, 655402, 1, 0, 720938, 1, 1, 786474, 1, 1, 852010, 1, 1, 852009, 1, 1, 786473, 1, 1, 720937, 1, 1, 852011, 1, 1, 786475, 1, 1, 720939, 1, 1, 720940, 1, 1, 786476, 1, 1, 852012, 1, 1, 655404, 1, 0, 655403, 1, 0, 655405, 196608, 1, 720941, 65536, 4, 262135, 262144, 4, 720933, 458752, 4, 786468, 327680, 2, 852004, 327680, 2, 917540, 327680, 6, 196831, 196608, 2, 131295, 196608, 2, 65759, 196608, 2, 223, 196608, 2, -65313, 196608, 2, -130849, 196608, 2, -196385, 196608, 2, -261921, 196608, 2, -327457, 196608, 2)
 
-[node name="Goal" parent="." instance=ExtResource("6_qlkko")]
-position = Vector2(3525, 133)
-next_level = "res://levels/level_02.tscn"
-
 [node name="Start_Position" type="Marker2D" parent="."]
-position = Vector2(5, 236)
+position = Vector2(109, 935)
 
 [node name="Player" parent="." instance=ExtResource("7_6sl4p")]
-position = Vector2(5, 237)
+position = Vector2(109, 935)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 process_priority = 5
 
 [node name="5" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(0, -13)
-motion_mirroring = Vector2(432, 312)
+position = Vector2(0, -352)
+motion_mirroring = Vector2(2016, 1456)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/5"]
-scale = Vector2(1.5, 1.5)
+scale = Vector2(7, 7)
 texture = ExtResource("8_1xwt1")
 centered = false
 
 [node name="4" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(0, -13)
+position = Vector2(0, -352)
 motion_scale = Vector2(0.3, 1)
-motion_mirroring = Vector2(432, 0)
+motion_mirroring = Vector2(2016, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/4"]
-scale = Vector2(1.5, 1.5)
+scale = Vector2(7, 7)
 texture = ExtResource("9_87eqt")
 centered = false
 
 [node name="3" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(0, -13)
+position = Vector2(0, -352)
 motion_scale = Vector2(0.5, 1)
-motion_mirroring = Vector2(432, 0)
+motion_mirroring = Vector2(2016, 0)
 
 [node name="Clouds" type="Sprite2D" parent="ParallaxBackground/3"]
 texture_repeat = 2
 material = SubResource("ShaderMaterial_l050c")
-scale = Vector2(1.5, 1.5)
+scale = Vector2(7, 7)
 texture = ExtResource("10_cxn1u")
 centered = false
 
 [node name="2" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(0, -13)
+position = Vector2(0, -352)
 motion_scale = Vector2(0.7, 1)
-motion_mirroring = Vector2(432, 0)
+motion_mirroring = Vector2(2016, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/2"]
 position = Vector2(-8, 5)
-scale = Vector2(1.5, 1.5)
+scale = Vector2(7, 7)
 texture = ExtResource("11_66l77")
 centered = false
 
 [node name="1" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(0, -13)
+position = Vector2(0, -352)
 motion_scale = Vector2(0.9, 1)
-motion_mirroring = Vector2(432, 0)
+motion_mirroring = Vector2(2016, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/1"]
 position = Vector2(0, 13)
-scale = Vector2(1.5, 1.5)
+scale = Vector2(7, 7)
 texture = ExtResource("12_cepfj")
 centered = false
 
 [node name="Camera" type="Camera2D" parent="."]
 limit_left = 0
-limit_right = 3650
+limit_top = 0
+limit_right = 12750
 limit_bottom = 300
 editor_draw_limits = true
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(77, 237)
-texture = ExtResource("5_p7tic")
-region_enabled = true
-region_rect = Rect2(48, 80, 16, 16)
-
-[node name="Warning_Sing" type="Node2D" parent="."]
-position = Vector2(77, 237)
-script = ExtResource("13_cqm71")
-
-[node name="Texture" type="Sprite2D" parent="Warning_Sing"]
-visible = false
-position = Vector2(0, -16)
-texture = ExtResource("14_cqr6f")
-region_enabled = true
-region_rect = Rect2(0, 0, 16, 16)
-
-[node name="Area_Sign" type="Area2D" parent="Warning_Sing"]
-collision_layer = 4
-
-[node name="Collision" type="CollisionShape2D" parent="Warning_Sing/Area_Sign"]
-shape = SubResource("RectangleShape2D_u1emn")
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
@@ -417,223 +386,134 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("15_2680q")
-default_minutes = 1
-default_seconds = 0
+default_seconds = 30
 
 [node name="Clock_Timer" type="Timer" parent="HUD/Control"]
 autostart = true
 
-[node name="Container" type="MarginContainer" parent="HUD/Control"]
+[node name="MarginContainer" type="MarginContainer" parent="HUD/Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 22
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 20
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
 
-[node name="Coins_Container" type="HBoxContainer" parent="HUD/Control/Container"]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-
-[node name="Coins_Icon" type="TextureRect" parent="HUD/Control/Container/Coins_Container"]
+[node name="Left_Container" type="HBoxContainer" parent="HUD/Control/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-texture = SubResource("AnimatedTexture_svopx")
-flip_v = true
 
-[node name="Coins_Counter" type="Label" parent="HUD/Control/Container/Coins_Container"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/Control/MarginContainer/Left_Container"]
 layout_mode = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("20_5s4pp")
-theme_override_font_sizes/font_size = 8
-text = "0000"
-vertical_alignment = 1
+theme_override_constants/separation = 25
 
-[node name="Score_Container" type="MarginContainer" parent="HUD/Control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 4.0
-offset_bottom = 4.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="Score_Container" type="HBoxContainer" parent="HUD/Control/Score_Container"]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-focus_neighbor_top = NodePath("../../Container/Coins_Container")
-alignment = 2
-
-[node name="Score_Counter" type="Label" parent="HUD/Control/Score_Container/Score_Container"]
+[node name="Hearts_Container" type="HBoxContainer" parent="HUD/Control/MarginContainer/Left_Container/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("20_5s4pp")
-theme_override_font_sizes/font_size = 8
-text = "000000"
+size_flags_vertical = 0
+theme_override_constants/separation = 30
+script = ExtResource("22_r7a2l")
 
-[node name="Life_Container" type="HBoxContainer" parent="HUD/Control/Score_Container"]
+[node name="Life_Container" type="HBoxContainer" parent="HUD/Control/MarginContainer/Left_Container/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="Life_Icon" type="TextureRect" parent="HUD/Control/Score_Container/Life_Container"]
+[node name="Lifes_Icon" type="TextureRect" parent="HUD/Control/MarginContainer/Left_Container/VBoxContainer/Life_Container"]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 0
-size_flags_vertical = 8
+size_flags_stretch_ratio = 0.0
 texture = ExtResource("21_25tr5")
+expand_mode = 3
 
-[node name="X" type="Label" parent="HUD/Control/Score_Container/Life_Container"]
+[node name="X" type="Label" parent="HUD/Control/MarginContainer/Left_Container/VBoxContainer/Life_Container"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
+theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("20_5s4pp")
-theme_override_font_sizes/font_size = 8
-text = "X"
+theme_override_font_sizes/font_size = 32
+text = "x"
 vertical_alignment = 1
 
-[node name="Life_Counter" type="Label" parent="HUD/Control/Score_Container/Life_Container"]
+[node name="Life_Counter" type="Label" parent="HUD/Control/MarginContainer/Left_Container/VBoxContainer/Life_Container"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
+theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("20_5s4pp")
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 32
 text = "03"
 vertical_alignment = 1
 
-[node name="Timer_Container" type="HBoxContainer" parent="HUD/Control/Score_Container"]
+[node name="Mid_Container" type="HBoxContainer" parent="HUD/Control/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 
-[node name="Timer_Counter" type="Label" parent="HUD/Control/Score_Container/Timer_Container"]
+[node name="Timer_Counter" type="Label" parent="HUD/Control/MarginContainer/Mid_Container"]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
+theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("20_5s4pp")
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 32
 text = "00:00"
 
-[node name="HeartsContainer" type="MarginContainer" parent="HUD/Control"]
-layout_mode = 1
-offset_right = 48.0
-offset_bottom = 40.0
-theme_override_constants/margin_left = 29
-theme_override_constants/margin_top = 8
-
-[node name="Hearts_Container" type="HBoxContainer" parent="HUD/Control/HeartsContainer"]
+[node name="Right_Container" type="HBoxContainer" parent="HUD/Control/MarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 8
 size_flags_vertical = 0
-theme_override_constants/separation = 12
-script = ExtResource("22_r7a2l")
 
-[node name="Coins" type="Node2D" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/Control/MarginContainer/Right_Container"]
+layout_mode = 2
 
-[node name="Coin" parent="Coins" instance=ExtResource("22_lx4lj")]
-position = Vector2(221, 235)
+[node name="Score_Counter" type="Label" parent="HUD/Control/MarginContainer/Right_Container/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("20_5s4pp")
+theme_override_font_sizes/font_size = 32
+text = "000000"
 
-[node name="Coin2" parent="Coins" instance=ExtResource("22_lx4lj")]
-position = Vector2(245, 235)
+[node name="Coins_Container" type="HBoxContainer" parent="HUD/Control/MarginContainer/Right_Container/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_constants/separation = 9
 
-[node name="Coin3" parent="Coins" instance=ExtResource("22_lx4lj")]
-position = Vector2(269, 235)
+[node name="Coins_Icon" type="TextureRect" parent="HUD/Control/MarginContainer/Right_Container/VBoxContainer/Coins_Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+texture = SubResource("AnimatedTexture_svopx")
+expand_mode = 2
+flip_v = true
 
-[node name="Coin4" parent="Coins" instance=ExtResource("22_lx4lj")]
-position = Vector2(718, 188)
-
-[node name="Coin5" parent="Coins" instance=ExtResource("22_lx4lj")]
-position = Vector2(1181, 202)
-
-[node name="Coin6" parent="Coins" instance=ExtResource("22_lx4lj")]
-position = Vector2(1213, 202)
-
-[node name="Coin7" parent="Coins" instance=ExtResource("22_lx4lj")]
-position = Vector2(1261, 106)
-
-[node name="Coin8" parent="Coins" instance=ExtResource("22_lx4lj")]
-position = Vector2(1293, 106)
-
-[node name="Coin9" parent="Coins" instance=ExtResource("22_lx4lj")]
-position = Vector2(1421, 90)
-
-[node name="Coin10" parent="Coins" instance=ExtResource("22_lx4lj")]
-position = Vector2(1453, 90)
-
-[node name="Coin11" parent="Coins" instance=ExtResource("22_lx4lj")]
-position = Vector2(1501, 90)
-
-[node name="Coin12" parent="Coins" instance=ExtResource("22_lx4lj")]
-position = Vector2(1533, 90)
-
-[node name="Coin13" parent="Coins" instance=ExtResource("22_lx4lj")]
-position = Vector2(1581, 90)
-
-[node name="Coin14" parent="Coins" instance=ExtResource("22_lx4lj")]
-position = Vector2(1613, 90)
-
-[node name="Coin15" parent="Coins" instance=ExtResource("22_lx4lj")]
-position = Vector2(1613, 234)
-
-[node name="Coin16" parent="Coins" instance=ExtResource("22_lx4lj")]
-position = Vector2(1645, 234)
-
-[node name="Coin17" parent="Coins" instance=ExtResource("22_lx4lj")]
-position = Vector2(1629, 210)
-
-[node name="Coin18" parent="Coins" instance=ExtResource("22_lx4lj")]
-position = Vector2(2453, 202)
-
-[node name="Coin19" parent="Coins" instance=ExtResource("22_lx4lj")]
-position = Vector2(2485, 202)
-
-[node name="Coin20" parent="Coins" instance=ExtResource("22_lx4lj")]
-position = Vector2(2949, 235)
-
-[node name="Coin21" parent="Coins" instance=ExtResource("22_lx4lj")]
-position = Vector2(2981, 235)
+[node name="Coins_Counter" type="Label" parent="HUD/Control/MarginContainer/Right_Container/VBoxContainer/Coins_Container"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("20_5s4pp")
+theme_override_font_sizes/font_size = 32
+text = "0000"
+vertical_alignment = 1
 
 [node name="Enemies" type="Node2D" parent="."]
 
-[node name="Enemy" parent="Enemies" instance=ExtResource("23_e0l6p")]
-position = Vector2(469, 237)
-
-[node name="Brick_Box" type="Node2D" parent="."]
-
-[node name="Brick_box" parent="Brick_Box" instance=ExtResource("24_x2ytw")]
-position = Vector2(1893, 197)
-
-[node name="Brick_box2" parent="Brick_Box" instance=ExtResource("24_x2ytw")]
-position = Vector2(1941, 197)
-
-[node name="Brick_box3" parent="Brick_Box" instance=ExtResource("24_x2ytw")]
-position = Vector2(2581, 133)
-
-[node name="Brick_box4" parent="Brick_Box" instance=ExtResource("24_x2ytw")]
-position = Vector2(3357, 133)
-
-[node name="Patrol_Enemy" parent="." instance=ExtResource("25_mrt8p")]
-position = Vector2(541, 189)
+[node name="Ground_Enemy" parent="Enemies" instance=ExtResource("21_3sgkc")]
+position = Vector2(1085, 941)
 
 [node name="Pause_Menu" parent="." instance=ExtResource("27_8o6ek")]
+visible = false
 
 [node name="Transition" type="CanvasLayer" parent="."]
 script = ExtResource("28_po34q")
@@ -679,5 +559,14 @@ theme_override_font_sizes/font_size = 32
 text = "LEVEL"
 
 [node name="Node" parent="." instance=ExtResource("31_iegje")]
+
+[node name="Coin" parent="." instance=ExtResource("28_c6hci")]
+position = Vector2(509, 941)
+
+[node name="Healing_Potion" parent="." instance=ExtResource("27_787bk")]
+position = Vector2(2011, 827)
+
+[node name="Life_Potion" parent="." instance=ExtResource("28_hrijx")]
+position = Vector2(2273, 650)
 
 [connection signal="timeout" from="HUD/Control/Clock_Timer" to="HUD/Control" method="_on_clock_timer_timeout"]

@@ -1,0 +1,120 @@
+[gd_scene load_steps=15 format=3 uid="uid://d32ii530tlbwd"]
+
+[ext_resource type="Script" path="res://scripts/life_potion.gd" id="1_am7g4"]
+[ext_resource type="Texture2D" uid="uid://c31tw4wvd4buh" path="res://assets/Mini FX, Items & UI/Mini FX, Items & UI/Effects/Bright_Sparkle (16 x 16).png" id="2_557r7"]
+[ext_resource type="Texture2D" uid="uid://bibplf11e4x7f" path="res://assets/Mini FX, Items & UI/Mini FX, Items & UI/Common Pick-ups/potions.png" id="3_xjt7f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uk4j0"]
+atlas = ExtResource("2_557r7")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgtf1"]
+atlas = ExtResource("2_557r7")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q1i53"]
+atlas = ExtResource("2_557r7")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85ltc"]
+atlas = ExtResource("2_557r7")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lho7i"]
+atlas = ExtResource("2_557r7")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmgyy"]
+atlas = ExtResource("3_xjt7f")
+region = Rect2(90, 44, 45, 44)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q14fb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uk4j0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgtf1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q1i53")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85ltc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lho7i")
+}],
+"loop": false,
+"name": &"Collected",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fmgyy")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jmx85"]
+size = Vector2(32, 32)
+
+[sub_resource type="Animation" id="Animation_vxr3t"]
+resource_name = "Floating"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Texture:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -4)]
+}
+
+[sub_resource type="Animation" id="Animation_0kyhv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Texture:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hghjr"]
+_data = {
+"Floating": SubResource("Animation_vxr3t"),
+"RESET": SubResource("Animation_0kyhv")
+}
+
+[node name="Life_Potion" type="Area2D"]
+script = ExtResource("1_am7g4")
+
+[node name="Texture" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_q14fb")
+animation = &"Collected"
+autoplay = "Idle"
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jmx85")
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hghjr")
+}
+autoplay = "Floating"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="Texture" to="." method="_on_texture_animation_finished"]

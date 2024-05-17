@@ -11,7 +11,6 @@ events = [SubResource("InputEventAction_qvuf6")]
 
 [node name="Pause_Menu" type="CanvasLayer"]
 process_mode = 3
-visible = false
 script = ExtResource("1_qr0ve")
 
 [node name="BG_Ovelay" type="ColorRect" parent="."]

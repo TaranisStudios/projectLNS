@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://c33oiapckpo4o"]
 
 [ext_resource type="Script" path="res://scripts/splash_screen.gd" id="1_rcav6"]
-[ext_resource type="Texture2D" uid="uid://cqb01yr6qb71y" path="res://assets/Logo.svg" id="2_gx8i8"]
+[ext_resource type="Texture2D" uid="uid://dn7l5n1n0gxgf" path="res://assets/Splash_Screen.svg" id="2_f5s0a"]
 
 [sub_resource type="Animation" id="Animation_iaovs"]
 resource_name = "Fade_In"
@@ -93,7 +93,7 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("2_gx8i8")
+texture = ExtResource("2_f5s0a")
 
 [node name="Fade" type="ColorRect" parent="."]
 layout_mode = 1

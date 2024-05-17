@@ -17,6 +17,6 @@ func is_dashing():
 
 func add_ghost():
 	var ghost = ghost_node.instantiate()
-	ghost.set_property(get_parent().position, anim.scale)
+	ghost.set_property(get_parent().position, anim.scale * 3.5)
 	get_tree().current_scene.add_child(ghost)
 

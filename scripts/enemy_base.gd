@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name EnemyBase
 
-const SPEED = 2500.0
+const SPEED = 5500.0
 const JUMP_VELOCITY = -400.0
 
 @onready var anim := $Anim

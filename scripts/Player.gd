@@ -1,12 +1,12 @@
 extends CharacterBody2D
 
 
-const NORMAL_SPEED = 150.0
+const NORMAL_SPEED = 675
 const AIR_FRICTION := 0.5
-const DASH_SPEED = 800
+const DASH_SPEED = 2800
 const DASH_LENGTH = .1
 
-@export var jump_height := 64
+@export var jump_height := 256
 @export var max_time_to_peak := 0.5
 @export var ghost_node : PackedScene
 
@@ -16,10 +16,12 @@ var fall_gravity
 
 var is_jumping := false
 var is_hurted := false
-var can_dash := false
+var can_dash := true
 var knockback_vector := Vector2.ZERO
 var knockback_power := 20
 var direction
+
+var has_dashed_timeout = false
 
 @onready var animation = $Anim as AnimatedSprite2D
 @onready var animator = $Animator as AnimationPlayer
@@ -35,16 +37,16 @@ func _ready():
 	jump_velocity = (jump_height * 2) / max_time_to_peak
 	gravity = (jump_height * 2) / pow(max_time_to_peak, 2)
 	fall_gravity = gravity * 2
-
+	
+func _process(delta):
+	if self.global_position.y > 1150:
+		emit_signal("player_has_died")
+	
 func _physics_process(delta):
-	if not is_on_floor():
-		pass#velocity.x = 0
-
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		velocity.y = -jump_velocity
 		is_jumping = true
 	elif is_on_floor():
-		can_dash = true
 		is_jumping = false
 	
 	if velocity.y > 0 or not Input.is_action_pressed("Jump"):
@@ -53,11 +55,18 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 	
 	if Input.is_action_just_pressed("Dash") and can_dash:
-		velocity.y = 0
-		particles.emitting = true
-		await dash.start_dash(DASH_LENGTH)
-		particles.emitting = false
-		can_dash = false
+		if Globals.player_max_dash > 0:
+			Globals.player_max_dash -= 1
+			particles.emitting = true
+			await dash.start_dash(DASH_LENGTH)
+			particles.emitting = false
+			can_dash = false
+			has_dashed_timeout = false
+	elif !has_dashed_timeout:
+		has_dashed_timeout = true
+		await get_tree().create_timer(3).timeout
+		Globals.player_max_dash = 1
+		can_dash = true
 		
 	var SPEED
 	if dash.is_dashing():
@@ -93,13 +102,9 @@ func Follow_Camera(camera):
 	print(camera.global_position)
 	var camera_path = camera.get_path()
 	remote_transform.remote_path = camera_path
-	
 
-func take_damage(knockback_force := Vector2.ZERO, duration := 0.25):
-	if Globals.player_hearts > 1:
-		Globals.player_hearts -= 1
-		
-		if knockback_force != Vector2.ZERO:		
+func knockback(knockback_force := Vector2.ZERO, duration := 0.25):
+	if knockback_force != Vector2.ZERO:		
 			knockback_vector = knockback_force
 		
 			var knockback_tween = get_tree().create_tween()
@@ -109,10 +114,16 @@ func take_damage(knockback_force := Vector2.ZERO, duration := 0.25):
 			is_hurted = true
 			await get_tree().create_timer(.3).timeout
 			is_hurted = false
-	
+
+func take_damage(knockback_force := Vector2.ZERO):
+	if Globals.player_hearts > 1:
+		Globals.player_hearts -= 1
+		knockback(knockback_force)
 	else:
+		await knockback(knockback_force)
+		Globals.player_hearts -= 1
 		queue_free()
-		if Globals.player_life > 0:
+		if Globals.player_life > 1:
 			Globals.player_life -= 1
 			emit_signal("player_has_lost_life")
 		else:
@@ -131,11 +142,6 @@ func _set_state():
 		
 	if animation.name != state:
 		animation.play(state)
-
-func add_ghost():
-	var ghost = ghost_node.instantiate()
-	ghost.set_property(position, animation.scale)
-	get_tree().current_scene.add_child(ghost)
 
 func _on_head_collider_body_entered(body):
 	if body.has_method("break_sprite"):

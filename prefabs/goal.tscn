@@ -44,6 +44,7 @@ _data = {
 }
 
 [node name="Goal" type="Area2D"]
+scale = Vector2(3.5, 3.5)
 collision_layer = 4
 script = ExtResource("1_rma7v")
 

@@ -9,6 +9,7 @@ offset_bottom = 40.0
 script = ExtResource("2_l0vwr")
 
 [node name="Texture" type="Sprite2D" parent="."]
+scale = Vector2(3.5, 3.5)
 texture = ExtResource("1_iiki7")
 centered = false
 hframes = 2

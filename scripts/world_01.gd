@@ -14,6 +14,7 @@ func _ready():
 	Globals.player_start_position = start_position
 	Globals.player = player
 	set_variables()
+	Globals.player_life = 3
 	Globals.player.Follow_Camera(camera)
 	Globals.player.player_has_lost_life.connect(reload_game)
 	Globals.player.player_has_died.connect(game_over)
@@ -39,10 +40,6 @@ func set_variables():
 	Globals.coins = 0
 	Globals.score = 0
 	Globals.player_hearts = 3
-	#Globals.player_life = 3
 
 func game_over():
-	if control.time_is_up:
-		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
-	elif Globals.player_life > 1:
-		reload_game()
+	get_tree().change_scene_to_file("res://scenes/game_over.tscn")

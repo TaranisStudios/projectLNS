@@ -1,9 +1,9 @@
 extends Control
 
-@onready var coins_counter = $Container/Coins_Container/Coins_Counter as Label
-@onready var timer_counter = $Score_Container/Timer_Container/Timer_Counter  as Label
-@onready var score_counter = $Score_Container/Score_Container/Score_Counter as Label
-@onready var life_counter = $Score_Container/Life_Container/Life_Counter as Label
+@onready var life_counter = $MarginContainer/Left_Container/VBoxContainer/Life_Container/Life_Counter
+@onready var timer_counter = $MarginContainer/Mid_Container/Timer_Counter
+@onready var score_counter = $MarginContainer/Right_Container/VBoxContainer/Score_Counter
+@onready var coins_counter = $MarginContainer/Right_Container/VBoxContainer/Coins_Container/Coins_Counter
 @onready var clock_timer = $Clock_Timer as Timer
 
 @export_range(0, 5) var default_minutes := 0
@@ -20,7 +20,6 @@ func _ready():
 	score_counter.text = str("%06d" % Globals.score)
 	life_counter.text = str("%02d" % Globals.player_life)
 	timer_counter.text = str("%02d" % default_minutes) + ":" + str("%02d" % default_seconds)
-	
 	minutes = default_minutes
 	seconds = default_seconds
 

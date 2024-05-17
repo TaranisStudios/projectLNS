@@ -84,6 +84,7 @@ animations = [{
 }]
 
 [node name="Coin" type="Area2D"]
+scale = Vector2(2.5, 2.5)
 collision_layer = 8
 script = ExtResource("1_ckvdb")
 
