@@ -6,6 +6,7 @@ extends Node2D
 
 @onready var camera := $Camera as Camera2D
 @onready var control = $HUD/Control
+@onready var goal = $Goal
 
 @onready var start_position = $Start_Position
 
@@ -18,7 +19,8 @@ func _ready():
 	Globals.player.Follow_Camera(camera)
 	Globals.player.player_has_lost_life.connect(reload_game)
 	Globals.player.player_has_died.connect(game_over)
-	control.time_is_up.connect(game_over)
+	if control.time_is_up and !goal.has_reached_goal:
+		game_over()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

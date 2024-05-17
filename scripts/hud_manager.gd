@@ -12,7 +12,7 @@ extends Control
 var minutes = 0
 var seconds = 0
 
-signal time_is_up()
+var time_is_up = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -31,7 +31,7 @@ func _process(delta):
 	life_counter.text = str("%02d" % Globals.player_life)
 	
 	if minutes == 0 and seconds == 0:
-		emit_signal("time_is_up")
+		time_is_up = true
 
 
 func _on_clock_timer_timeout():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://b8pklxqevbxcl"]
+[gd_scene load_steps=39 format=3 uid="uid://b8pklxqevbxcl"]
 
 [ext_resource type="Script" path="res://scripts/world_01.gd" id="1_wbero"]
 [ext_resource type="Texture2D" uid="uid://bkpb52gnv4j8g" path="res://assets/Seasonal Tilesets/Seasonal Tilesets/1 - Grassland/Terrain (16 x 16).png" id="2_nicow"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://b2lgd42gcmdqf" path="res://prefabs/coin.tscn" id="28_c6hci"]
 [ext_resource type="PackedScene" uid="uid://d32ii530tlbwd" path="res://prefabs/life_potion.tscn" id="28_hrijx"]
 [ext_resource type="Script" path="res://scripts/transition.gd" id="28_po34q"]
+[ext_resource type="PackedScene" uid="uid://ci1xbuacwmn1o" path="res://prefabs/goal.tscn" id="29_b0xhr"]
 [ext_resource type="Shader" path="res://shaders/transition.gdshader" id="29_wis4n"]
 [ext_resource type="Script" path="res://scripts/color_rect.gd" id="30_i8gkv"]
 [ext_resource type="PackedScene" uid="uid://cakhsnsiaofl" path="res://UI/selection_wheel_ui.tscn" id="31_iegje"]
@@ -314,6 +315,7 @@ position = Vector2(109, 935)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 process_priority = 5
+scroll_offset = Vector2(-2358, 0)
 
 [node name="5" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(0, -352)
@@ -568,5 +570,9 @@ position = Vector2(2011, 827)
 
 [node name="Life_Potion" parent="." instance=ExtResource("28_hrijx")]
 position = Vector2(2273, 650)
+
+[node name="Goal" parent="." instance=ExtResource("29_b0xhr")]
+position = Vector2(12345, 588)
+next_level = "res://levels/level_02.tscn"
 
 [connection signal="timeout" from="HUD/Control/Clock_Timer" to="HUD/Control" method="_on_clock_timer_timeout"]
