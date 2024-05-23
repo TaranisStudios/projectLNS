@@ -6,10 +6,10 @@ func _ready():
 	set_max_hearts()
 
 func _process(delta):
-	update_heart(Globals.player_hearts)
+	update_heart(GameManager.player_hearts)
 
 func set_max_hearts():
-	for i in range(Globals.player_max_hearts):
+	for i in range(GameManager.player_max_hearts):
 		var heart = heartUI.instantiate()
 		add_child(heart)	
 

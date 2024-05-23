@@ -18,8 +18,9 @@ config/icon="res://icon.svg"
 [autoload]
 
 DialogManager="*res://singletons/dialog_manager.gd"
-Globals="*res://singletons/globals.gd"
+GameManager="*res://singletons/GameManager.gd"
 Functions="*res://singletons/Functions.gd"
+Level_Data="*res://scripts/Core/Level_Data.gd"
 
 [display]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://b8pklxqevbxcl"]
+[gd_scene load_steps=40 format=3 uid="uid://b8pklxqevbxcl"]
 
 [ext_resource type="Script" path="res://scripts/world_01.gd" id="1_wbero"]
 [ext_resource type="Texture2D" uid="uid://bkpb52gnv4j8g" path="res://assets/Seasonal Tilesets/Seasonal Tilesets/1 - Grassland/Terrain (16 x 16).png" id="2_nicow"]
@@ -27,6 +27,7 @@
 [ext_resource type="Script" path="res://scripts/transition.gd" id="28_po34q"]
 [ext_resource type="PackedScene" uid="uid://ci1xbuacwmn1o" path="res://prefabs/goal.tscn" id="29_b0xhr"]
 [ext_resource type="Shader" path="res://shaders/transition.gdshader" id="29_wis4n"]
+[ext_resource type="PackedScene" uid="uid://dkrtswhwx74rq" path="res://actors/ground_patrol_enemy.tscn" id="30_5kd20"]
 [ext_resource type="Script" path="res://scripts/color_rect.gd" id="30_i8gkv"]
 [ext_resource type="PackedScene" uid="uid://cakhsnsiaofl" path="res://UI/selection_wheel_ui.tscn" id="31_iegje"]
 
@@ -509,11 +510,6 @@ theme_override_font_sizes/font_size = 32
 text = "0000"
 vertical_alignment = 1
 
-[node name="Enemies" type="Node2D" parent="."]
-
-[node name="Ground_Enemy" parent="Enemies" instance=ExtResource("21_3sgkc")]
-position = Vector2(1085, 941)
-
 [node name="Pause_Menu" parent="." instance=ExtResource("27_8o6ek")]
 visible = false
 
@@ -574,5 +570,14 @@ position = Vector2(2273, 650)
 [node name="Goal" parent="." instance=ExtResource("29_b0xhr")]
 position = Vector2(12345, 588)
 next_level = "res://levels/level_02.tscn"
+
+[node name="Enemy" parent="." instance=ExtResource("21_3sgkc")]
+position = Vector2(1085, 937)
+
+[node name="Ground_Patrol" parent="." instance=ExtResource("30_5kd20")]
+position = Vector2(2560, 769)
+
+[node name="Ground_Patrol2" parent="." instance=ExtResource("30_5kd20")]
+position = Vector2(2185, 827)
 
 [connection signal="timeout" from="HUD/Control/Clock_Timer" to="HUD/Control" method="_on_clock_timer_timeout"]

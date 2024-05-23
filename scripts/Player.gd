@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 
 const NORMAL_SPEED = 675
@@ -55,8 +56,8 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 	
 	if Input.is_action_just_pressed("Dash") and can_dash:
-		if Globals.player_max_dash > 0:
-			Globals.player_max_dash -= 1
+		if GameManager.player_max_dash > 0:
+			GameManager.player_max_dash -= 1
 			particles.emitting = true
 			await dash.start_dash(DASH_LENGTH)
 			particles.emitting = false
@@ -65,7 +66,7 @@ func _physics_process(delta):
 	elif !has_dashed_timeout:
 		has_dashed_timeout = true
 		await get_tree().create_timer(3).timeout
-		Globals.player_max_dash = 1
+		GameManager.player_max_dash = 1
 		can_dash = true
 		
 	var SPEED
@@ -99,7 +100,6 @@ func _on_hurtbox_body_entered(body):
 	take_damage(knockback)
 
 func Follow_Camera(camera):
-	print(camera.global_position)
 	var camera_path = camera.get_path()
 	remote_transform.remote_path = camera_path
 
@@ -116,15 +116,15 @@ func knockback(knockback_force := Vector2.ZERO, duration := 0.25):
 			is_hurted = false
 
 func take_damage(knockback_force := Vector2.ZERO):
-	if Globals.player_hearts > 1:
-		Globals.player_hearts -= 1
+	if GameManager.player_hearts > 1:
+		GameManager.player_hearts -= 1
 		knockback(knockback_force)
 	else:
 		await knockback(knockback_force)
-		Globals.player_hearts -= 1
+		GameManager.player_hearts -= 1
 		queue_free()
-		if Globals.player_life > 1:
-			Globals.player_life -= 1
+		if GameManager.player_life > 1:
+			GameManager.player_life -= 1
 			emit_signal("player_has_lost_life")
 		else:
 			emit_signal("player_has_died")

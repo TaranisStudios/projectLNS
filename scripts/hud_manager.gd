@@ -16,9 +16,9 @@ var time_is_up = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	coins_counter.text = str("%04d" % Globals.coins)
-	score_counter.text = str("%06d" % Globals.score)
-	life_counter.text = str("%02d" % Globals.player_life)
+	coins_counter.text = str("%04d" % GameManager.coins)
+	score_counter.text = str("%06d" % GameManager.score)
+	life_counter.text = str("%02d" % GameManager.player_life)
 	timer_counter.text = str("%02d" % default_minutes) + ":" + str("%02d" % default_seconds)
 	minutes = default_minutes
 	seconds = default_seconds
@@ -26,9 +26,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	coins_counter.text = str("%04d" % Globals.coins)
-	score_counter.text = str("%06d" % Globals.score)
-	life_counter.text = str("%02d" % Globals.player_life)
+	coins_counter.text = str("%04d" % GameManager.coins)
+	score_counter.text = str("%06d" % GameManager.score)
+	life_counter.text = str("%02d" % GameManager.player_life)
 	
 	if minutes == 0 and seconds == 0:
 		time_is_up = true

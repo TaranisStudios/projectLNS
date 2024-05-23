@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://byf5cjx5ak3cf"]
 
 [ext_resource type="PackedScene" uid="uid://bh341a1cf4v0w" path="res://prefabs/hitbox.tscn" id="1_6bk4n"]
-[ext_resource type="Script" path="res://scripts/patrol_enemy.gd" id="1_yyick"]
+[ext_resource type="Script" path="res://scripts/enemies/patrol_enemy.gd" id="1_yyick"]
 [ext_resource type="Texture2D" uid="uid://b36hatf4o6s2q" path="res://assets/Sprite Pack 2/7 - Rocket Cherry/Flying (16 x 32).png" id="2_f78da"]
 [ext_resource type="Texture2D" uid="uid://eejx7c5lpfsy" path="res://assets/Sprite Pack 2/7 - Rocket Cherry/Hurt_Falling (16 x 32).png" id="3_wfotr"]
 
@@ -94,7 +94,6 @@ scale = Vector2(3.5, 3.5)
 
 [node name="Enemy" type="CharacterBody2D" parent="."]
 position = Vector2(0, 7)
-scale = Vector2(1, 1)
 collision_layer = 2
 collision_mask = 7
 motion_mode = 1

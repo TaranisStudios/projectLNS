@@ -2,8 +2,6 @@ extends Node2D
 
 @onready var player := $Player as CharacterBody2D
 
-@onready var player_scene = preload("res://actors/player.tscn")
-
 @onready var camera := $Camera as Camera2D
 @onready var control = $HUD/Control
 @onready var goal = $Goal
@@ -12,36 +10,15 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Globals.player_start_position = start_position
-	Globals.player = player
-	set_variables()
-	Globals.player_life = 3
-	Globals.player.Follow_Camera(camera)
-	Globals.player.player_has_lost_life.connect(reload_game)
-	Globals.player.player_has_died.connect(game_over)
+	GameManager.player_start_position = start_position
+	GameManager.set_variables(player, camera)
+	GameManager.player.Follow_Camera(camera)
+	GameManager.player.player_has_lost_life.connect(GameManager.reload_game)
+	GameManager.player.player_has_died.connect(GameManager.game_over)
 	if control.time_is_up and !goal.has_reached_goal:
-		game_over()
+		GameManager.game_over()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
-func reload_game():
-	await get_tree().create_timer(1.0).timeout
-	var player = player_scene.instantiate()
-	add_child(player)
-	#control.reset_clock_timer()
-	Globals.player = player
-	Globals.player.Follow_Camera(camera)
-	set_variables()
-	Globals.player.player_has_lost_life.connect(reload_game)
-	Globals.player.player_has_died.connect(game_over)
-	Globals.respawn_player()
-
-func set_variables():
-	Globals.coins = 0
-	Globals.score = 0
-	Globals.player_hearts = 3
-
-func game_over():
-	get_tree().change_scene_to_file("res://scenes/game_over.tscn")
