@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwvsc8x1hk0io"]
+
+[ext_resource type="Script" path="res://scripts/enemies/mutron.gd" id="1_y2sk4"]
+[ext_resource type="PackedScene" uid="uid://bh341a1cf4v0w" path="res://prefabs/mechanics/hitbox.tscn" id="2_f8cpk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xlhxo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_myc3o"]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_y2sk4")
+
+[node name="Hitbox" parent="." instance=ExtResource("2_f8cpk")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_xlhxo")
+debug_color = Color(0.965127, 0.125151, 0.357428, 0.42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_myc3o")
+
+[node name="Wall_Detector" type="RayCast2D" parent="."]
+
+[node name="Player_Detector" type="RayCast2D" parent="."]

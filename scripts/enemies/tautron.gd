@@ -2,7 +2,7 @@ extends Enemy
 
 func _ready():
 	wall_detector = $Wall_Detector
-	score = 50
+	score = 100
 	anim.animation_finished.connect(kill_enemy_and_score)
 
 func _physics_process(delta):

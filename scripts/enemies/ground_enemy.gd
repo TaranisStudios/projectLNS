@@ -9,3 +9,4 @@ func _physics_process(delta):
 	_apply_gravity(delta)
 	_movement(delta)
 	_flip_direction()
+

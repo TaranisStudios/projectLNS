@@ -9,6 +9,7 @@ const JUMP_VELOCITY = -400.0
 @export var score := 0
 
 var wall_detector
+var player_detector
 var ground_detector
 var direction := -1
 
@@ -47,6 +48,7 @@ func spawn_new_enemy():
 	var instace_scene = spawn_instance.instantiate()
 	get_tree().root.add_child(instace_scene)
 	instace_scene.global_position = spawn_instance_position.global_position
+
 
 func _on_hitbox_body_entered(body):
 	anim.play("Hurt")
