@@ -98,6 +98,9 @@ func _physics_process(delta):
 func _on_hurtbox_body_entered(body):
 	var knockback = Vector2((global_position.x - body.global_position.x) * knockback_power, -200)
 	take_damage(knockback)
+	
+	if body.is_in_group("fireball"):
+		body.queue_free()
 
 func Follow_Camera(camera):
 	var camera_path = camera.get_path()

@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_4vyx5"]
 [ext_resource type="Texture2D" uid="uid://be307oxajs3cv" path="res://assets/Sprite Pack 2/2 - Mr. Mochi/Idle (32 x 32).png" id="2_52xkc"]
-[ext_resource type="PackedScene" uid="uid://du7jwj5i2yro0" path="res://prefabs/ghost.tscn" id="2_p8v62"]
+[ext_resource type="PackedScene" uid="uid://du7jwj5i2yro0" path="res://prefabs/mechanics/ghost.tscn" id="2_mnk4f"]
 [ext_resource type="Texture2D" uid="uid://demuv3n17kx5m" path="res://assets/Sprite Pack 2/2 - Mr. Mochi/Hurt (32 x 32).png" id="2_x8vno"]
 [ext_resource type="Shader" path="res://shaders/hit_flash.gdshader" id="2_xeneh"]
 [ext_resource type="Texture2D" uid="uid://bws1oegncyxgr" path="res://assets/Sprite Pack 2/2 - Mr. Mochi/Jumping (32 x 32).png" id="3_2dwot"]
 [ext_resource type="Texture2D" uid="uid://cvwkhwa7c786v" path="res://assets/Sprite Pack 2/2 - Mr. Mochi/Running (32 x 32).png" id="4_4bnq6"]
-[ext_resource type="PackedScene" uid="uid://cxj4lscoh548" path="res://prefabs/dash.tscn" id="8_j8138"]
+[ext_resource type="PackedScene" uid="uid://cxj4lscoh548" path="res://prefabs/mechanics/dash.tscn" id="8_ro5l7"]
 
 [sub_resource type="Animation" id="Animation_4y1og"]
 resource_name = "Hit_Flash"
@@ -198,7 +198,7 @@ position = Vector2(0, -7)
 scale = Vector2(3.5, 3.5)
 collision_mask = 94
 script = ExtResource("1_4vyx5")
-ghost_node = ExtResource("2_p8v62")
+ghost_node = ExtResource("2_mnk4f")
 
 [node name="Animator" type="AnimationPlayer" parent="."]
 libraries = {
@@ -238,7 +238,7 @@ collision_mask = 64
 position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_8khv6")
 
-[node name="Dash" parent="." node_paths=PackedStringArray("anim") instance=ExtResource("8_j8138")]
+[node name="Dash" parent="." node_paths=PackedStringArray("anim") instance=ExtResource("8_ro5l7")]
 anim = NodePath("../Anim")
 
 [node name="Particles" type="GPUParticles2D" parent="."]

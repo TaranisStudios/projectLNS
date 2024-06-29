@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://du7jwj5i2yro0"]
+
+[ext_resource type="Texture2D" uid="uid://cvwkhwa7c786v" path="res://assets/Sprite Pack 2/2 - Mr. Mochi/Running (32 x 32).png" id="1_mwpru"]
+[ext_resource type="Script" path="res://scripts/Mechanics/ghost.gd" id="2_72srh"]
+
+[node name="Ghost" type="Sprite2D"]
+modulate = Color(0.355313, 0.355314, 0.355313, 1)
+show_behind_parent = true
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("1_mwpru")
+region_enabled = true
+region_rect = Rect2(4, 12, 24, 20)
+script = ExtResource("2_72srh")

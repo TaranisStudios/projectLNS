@@ -1,0 +1,70 @@
+[gd_scene load_steps=11 format=3 uid="uid://dcgr0qnw5rwhp"]
+
+[ext_resource type="Script" path="res://scripts/Enemies/patrol.gd" id="1_sdvjs"]
+[ext_resource type="Texture2D" uid="uid://bqcmt2wbmqev0" path="res://assets/Sprite Pack 2/7 - Rocket Cherry/Hopping (16 x 32).png" id="2_u1lt5"]
+[ext_resource type="Texture2D" uid="uid://ca4giikgvn4p2" path="res://assets/Sprite Pack 2/7 - Rocket Cherry/Hurt (16 x 32).png" id="3_x021m"]
+[ext_resource type="PackedScene" uid="uid://bh341a1cf4v0w" path="res://prefabs/mechanics/hitbox.tscn" id="4_f4ogb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_krele"]
+atlas = ExtResource("2_u1lt5")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0tec4"]
+atlas = ExtResource("2_u1lt5")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vpjnh"]
+atlas = ExtResource("3_x021m")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xsoh2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_krele")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0tec4")
+}],
+"loop": true,
+"name": &"Hopping",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vpjnh")
+}],
+"loop": false,
+"name": &"Hurt",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pew84"]
+radius = 4.0
+height = 14.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cr7wv"]
+size = Vector2(10, 2)
+
+[node name="Patrol" type="CharacterBody2D"]
+scale = Vector2(3.5, 3.5)
+collision_layer = 2
+collision_mask = 7
+script = ExtResource("1_sdvjs")
+
+[node name="Anim" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xsoh2")
+animation = &"Hurt"
+autoplay = "Hopping"
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 12)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_pew84")
+
+[node name="Hitbox" parent="." instance=ExtResource("4_f4ogb")]
+
+[node name="Collision" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_cr7wv")
+debug_color = Color(1, 0, 0, 0.419608)

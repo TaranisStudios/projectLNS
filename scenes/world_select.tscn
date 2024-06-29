@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://boa1gc3ii0yjs"]
 
 [ext_resource type="PackedScene" uid="uid://cedbcpo7djx40" path="res://scenes/world_icon.tscn" id="1_0801x"]
-[ext_resource type="Script" path="res://scripts/world_select.gd" id="1_oh0o2"]
+[ext_resource type="Script" path="res://scripts/UI/world_select.gd" id="1_oh0o2"]
 [ext_resource type="PackedScene" uid="uid://csm5l0pjc7vtq" path="res://UI/player_icon.tscn" id="3_ud4u5"]
 
 [node name="World_Select" type="Control"]

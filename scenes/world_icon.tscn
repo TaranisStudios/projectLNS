@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cedbcpo7djx40"]
 
 [ext_resource type="FontFile" uid="uid://hupofyrngaer" path="res://assets/RevMiniPixel.ttf" id="1_fhuge"]
-[ext_resource type="Script" path="res://scripts/world_icon.gd" id="1_ipdqh"]
+[ext_resource type="Script" path="res://scripts/UI/world_icon.gd" id="1_ipdqh"]
 [ext_resource type="PackedScene" uid="uid://7g8yaji77fy4" path="res://scenes/level_select.tscn" id="2_y48y3"]
 
 [sub_resource type="Gradient" id="Gradient_mq2o6"]

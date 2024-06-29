@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://dud8en8nkjrwf"]
 
-[ext_resource type="Script" path="res://scripts/selection_wheel.gd" id="1_8jmia"]
+[ext_resource type="Script" path="res://scripts/Interectable/selection_wheel.gd" id="1_8jmia"]
 [ext_resource type="Texture2D" uid="uid://dfmkbkuvvngk8" path="res://assets/Mini FX, Items & UI/Mini FX, Items & UI/Food Items/Ice_Cream_Cones (16 x 16).png" id="2_yn7m8"]
-[ext_resource type="Script" path="res://scripts/wheel_options.gd" id="3_7fu6a"]
+[ext_resource type="Script" path="res://scripts/Interectable/wheel_options.gd" id="3_7fu6a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3eukj"]
 atlas = ExtResource("2_yn7m8")

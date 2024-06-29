@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c55y4a0e8028h"]
 
-[ext_resource type="Script" path="res://scripts/level_icon.gd" id="1_xxwaa"]
+[ext_resource type="Script" path="res://scripts/UI/level_icon.gd" id="1_xxwaa"]
 [ext_resource type="FontFile" uid="uid://hupofyrngaer" path="res://assets/RevMiniPixel.ttf" id="2_pkwiu"]
 
 [sub_resource type="Gradient" id="Gradient_mq2o6"]

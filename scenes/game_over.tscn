@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://cec3ekeety11h"]
 
 [ext_resource type="Texture2D" uid="uid://u7bv8hhxwjrh" path="res://assets/game_over.png" id="1_1khd3"]
-[ext_resource type="Script" path="res://scripts/game_over.gd" id="1_g6882"]
+[ext_resource type="Script" path="res://scripts/UI/game_over.gd" id="1_g6882"]
 [ext_resource type="Theme" uid="uid://btu5xqgy1p1lm" path="res://themes/buttons.tres" id="2_bhuon"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qwb1s"]

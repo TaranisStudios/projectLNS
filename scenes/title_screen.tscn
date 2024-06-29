@@ -1,0 +1,78 @@
+[gd_scene load_steps=6 format=3 uid="uid://51ec2y3son2q"]
+
+[ext_resource type="Texture2D" uid="uid://ig3108w2o203" path="res://assets/title-screen.jpg" id="1_5bnqx"]
+[ext_resource type="Script" path="res://scripts/UI/title_screen.gd" id="1_gsbam"]
+[ext_resource type="Texture2D" uid="uid://dyiqwapxivt6w" path="res://assets/game_logo.png" id="2_t8uj4"]
+[ext_resource type="Texture2D" uid="uid://bws1oegncyxgr" path="res://assets/Sprite Pack 2/2 - Mr. Mochi/Jumping (32 x 32).png" id="4_set6i"]
+[ext_resource type="Theme" uid="uid://d23xrny85yvm7" path="res://themes/title_screen_btn.tres" id="4_w3k25"]
+
+[node name="Title_Screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gsbam")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 2
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_5bnqx")
+expand_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 10.25
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Game_Logo" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_t8uj4")
+expand_mode = 5
+
+[node name="Start_BTN" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_w3k25")
+text = "START"
+
+[node name="Credits_BTN" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_w3k25")
+text = "CREDITS"
+
+[node name="Exit_Game_BTN" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_w3k25")
+text = "EXIT GAME
+"
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("4_set6i")
+expand_mode = 2
+flip_h = true
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Start_BTN" to="." method="_on_start_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Credits_BTN" to="." method="_on_credits_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Exit_Game_BTN" to="." method="_on_exit_game_btn_pressed"]

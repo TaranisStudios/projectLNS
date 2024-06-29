@@ -11,7 +11,6 @@ const JUMP_VELOCITY = -400.0
 var wall_detector
 var ground_detector
 var direction := -1
-var facing_right = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -35,7 +34,6 @@ func _flip_direction():
 	if wall_detector.is_colliding() or ground_detector != null and !ground_detector.is_colliding():
 		scale.x = abs(scale.x) * -1
 		direction *= -1
-
 
 func kill_enemy_and_score():
 	GameManager.score += score

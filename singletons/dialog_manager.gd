@@ -1,6 +1,6 @@
 extends Node
 
-@onready var dialog_box_scene = preload("res://prefabs/diaolog_box.tscn")
+@onready var dialog_box_scene = preload("res://prefabs/interactable/diaolog_box.tscn")
 
 var message_lines : Array[String] = []
 var current_line = 0

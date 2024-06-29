@@ -1,9 +1,9 @@
 [gd_scene load_steps=14 format=3 uid="uid://cakhsnsiaofl"]
 
-[ext_resource type="Script" path="res://scripts/selection_wheel_UI.gd" id="1_cnf1o"]
+[ext_resource type="Script" path="res://scripts/UI/selection_wheel_UI.gd" id="1_cnf1o"]
 [ext_resource type="PackedScene" uid="uid://dud8en8nkjrwf" path="res://UI/selection_wheel.tscn" id="2_y1p6i"]
 [ext_resource type="Texture2D" uid="uid://dfmkbkuvvngk8" path="res://assets/Mini FX, Items & UI/Mini FX, Items & UI/Food Items/Ice_Cream_Cones (16 x 16).png" id="3_avr08"]
-[ext_resource type="Script" path="res://scripts/wheel_options.gd" id="4_nff8s"]
+[ext_resource type="Script" path="res://scripts/Interectable/wheel_options.gd" id="4_nff8s"]
 [ext_resource type="Texture2D" uid="uid://n30lh4ilm21m" path="res://assets/Mini FX, Items & UI/Mini FX, Items & UI/Food Items/Milk_Cartons (16 x 16).png" id="5_h1d1a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3eukj"]
